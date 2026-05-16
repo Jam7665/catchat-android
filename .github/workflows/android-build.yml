@@ -2,8 +2,8 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main, master ]  # Triggers whenever you push to main/master
-  workflow_dispatch:          # Allows you to trigger it manually from GitHub
+    branches: [ main, master ]  # Triggers whenever you push to main or master
+  workflow_dispatch:          # Allows you to trigger it manually from the Actions tab
 
 jobs:
   build:
@@ -22,15 +22,15 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '22' # Fixed: Upgraded from 20 to 22 to satisfy Capacitor CLI
         cache: 'npm'
 
     - name: Install Project Dependencies
       run: npm ci
 
     - name: Build Web Assets
-      # If you just use plain HTML/CSS/JS without a framework build step, 
-      # change this to an echo or delete it. If using Vite/React/etc., keep it.
+      # If you just use plain HTML/CSS/JS without a bundler build step (like Vite), 
+      # this will safely skip without breaking.
       run: npm run build --if-present
 
     - name: Sync Web Code to Capacitor Android Shell
@@ -43,6 +43,8 @@ jobs:
         cd android
         chmod +x gradlew
         ./gradlew assembleDebug
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload Finished APK as Artifact
       uses: actions/upload-artifact@v4
