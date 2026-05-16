@@ -1,2 +1,2 @@
-# android-project-template
+# app-template
 # made in capacitorjs
