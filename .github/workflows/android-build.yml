@@ -22,7 +22,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '22' # Fixed: Upgraded from 20 to 22 to satisfy Capacitor CLI
+        node-version: '22'
         cache: 'npm'
 
     - name: Install Project Dependencies
@@ -35,7 +35,6 @@ jobs:
 
     - name: Sync Web Code to Capacitor Android Shell
       run: |
-        npx cap json
         npx cap sync android
 
     - name: Build Android Debug APK
