@@ -1,23 +1,29 @@
 {
-<<<<<<< HEAD
+  "name": "app-template",
   "version": "1.1.0",
+  "description": "A template-friendly Capacitor starter setup for rapid deployments.",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Add your frontend web build command here (e.g., vite build or next build)'",
+    "cap:sync": "npx cap sync",
+    "cap:open-android": "npx cap open android"
+  },
+  "keywords": [
+    "capacitor",
+    "android",
+    "template",
+    "awoo-co"
+  ],
+  "author": "awoo-co",
+  "license": "MIT",
   "dependencies": {
     "@capacitor-community/electron": "^5.0.1",
     "@capacitor/android": "^8.3.4",
     "@capacitor/assets": "^3.0.5",
     "@capacitor/core": "^8.3.4",
     "@capacitor/ios": "^8.3.4"
-=======
-  "dependencies": {
-    "@capacitor/android": "^8.3.4",
-    "@capacitor/core": "^8.3.4"
->>>>>>> 5d97ed61c8afca9f307daf0ec4e02385ed5a14fd
   },
   "devDependencies": {
     "@capacitor/cli": "^8.3.4"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5d97ed61c8afca9f307daf0ec4e02385ed5a14fd

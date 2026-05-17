@@ -78,7 +78,7 @@ jobs:
         body: |
           Automated Android compilation pipeline.
           Website accessible version deployed tracking live master hooks.
-          Repository: awoo-co/catchat-app
+          Repository: ${{ github.repository }}
           Commit: ${{ github.sha }}
         draft: true
         prerelease: false
